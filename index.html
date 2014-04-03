@@ -12,8 +12,16 @@
             position: absolute;
             top:0;
             left: 0;
+            right: 30%;
+            bottom:0;
+        }
+        #geojson {
+            position: absolute;
+            left: 70%;
+            top: 0;
             right: 0;
             bottom:0;
+            width: 30%;
         }
         .leaflet-control.enabled a {
             background-color: yellow;
@@ -46,10 +54,11 @@
     </style>
 </head>
 <body>
-    <p class="help">Draw on map !
+    <p class="help">Draw GeoJSON on map !
       <a class="sources" href="http://github.com/makinacorpus/Leaflet.gribouille/">Sources</a>
       <a class="logo" href="http://makina-corpus.com"><img src="http://depot.makina-corpus.org/public/logo.gif"/></a>
     </p>
     <div id="map"></div>
+    <textarea id="geojson"></textarea>
 </body>
 </html>

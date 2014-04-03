@@ -5,15 +5,26 @@
                    .fitWorld();
         L.tileLayer('http://tile.osm.org/{z}/{x}/{y}.png').addTo(map);
 
+        map.dragging.disable();
 
         var polygon = L.polygon([]).addTo(map);
+
+        var enabled = false;
+        map.on('mousedown mouseup', function () { enabled = !enabled; });
         map.on('mousemove', function (e) {
+            if (!enabled) return;
             var radius = map.layerPointToLatLng([0, 0]).lat -
                          map.layerPointToLatLng([10, 10]).lat;
             var dot = circle2polygon(e.latlng, radius, 32);
             polygon.setLatLngs(mergePolygons(dot.getLatLngs(),
                                              polygon.getLatLngs()));
         });
+
+
+        setInterval(function () {
+            document.getElementById('geojson')
+                    .innerHTML = JSON.stringify(polygon.toGeoJSON());
+        }, 500);
     };
 
 

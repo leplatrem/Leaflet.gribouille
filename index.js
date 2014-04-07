@@ -1,6 +1,6 @@
 (function () {
     var RESOLUTION = 16,  // Number of points per circle
-        SIZE = 10;        // Pen size
+        SIZE = 40;        // Pen size
 
     window.onload = function onload() {
         var map = L.map('map')
